@@ -1,2 +1,2 @@
 # BMY-Frontend
-[[image.webp]]
+![logo](image.webp)
