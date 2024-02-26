@@ -8,8 +8,9 @@
     <!-- -->
     <div class="sidebar-wrapper" id="style-3">
       <div class="logo">
-      
-       
+        <div class="logo">
+          <img src="../../../image.webp" alt="Logo" />
+        </div>
       </div>
       <ul class="nav">
         <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
@@ -143,3 +144,9 @@
     }
   };
 </script>
+
+<style>
+.logo {
+
+}
+</style>
