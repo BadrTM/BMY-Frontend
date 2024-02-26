@@ -50,7 +50,19 @@ export default {
                 // Add more alerts here
             ],
         };
+    }, mounted() {
+        this.parseUrlParams();
     },
+    methods: {
+    parseUrlParams() {
+        // Accessing the query parameters directly from Vue Router's $route.query
+        this.user.name = this.$route.query.name || "Default Name";
+        this.user.condition = this.$route.query.condition;
+        this.user.gender = this.$route.query.gender;
+        this.user.age = this.$route.query.age;
+        this.user.photoUrl = this.$route.query.photoUrl || 'https://avatar.iran.liara.run/public/default';
+    }
+}
 };
 </script>
 

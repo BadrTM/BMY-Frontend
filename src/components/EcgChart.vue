@@ -1,5 +1,5 @@
 <template>
-  <div class="chart-container">
+  <div class="chart-container bg-gradient-to-b from-black via-transparent via-70% to-black rounded-lg">
     <canvas ref="ecgCanvas"></canvas>
   </div>
 </template>
@@ -9,7 +9,6 @@ import { ref, onMounted } from 'vue';
 import { Chart } from 'chart.js';
 
 export default {
-  name: 'ECGChart',
   setup() {
     const ecgCanvas = ref(null);
 
@@ -101,12 +100,12 @@ export default {
           maintainAspectRatio: false,
           responsive: true,
         }
-
+        
       });
 
-
-      // Function to update the chart for animation
-      const animate = () => {
+      
+// Function to update the chart for animation
+const animate = () => {
         const data = ecgChart.data.datasets[0].data;
         const dotData = ecgChart.data.datasets[1].data;
 
@@ -114,25 +113,23 @@ export default {
         data.push(data.shift());
 
         // Move the dot along with the last spike
-        const lastPointIndex = 299; // Assuming 300 data points for the ECG line
-        const lastPointY = data[lastPointIndex]; // Use the Y value of the last data point for continuity
-
-        dotData[0] = { x: lastPointIndex, y: lastPointY }; // Update the dot's position to the last point
+        const lastPointY = data[data.length - 1];
+        dotData[0] = {x: data.length - 1, y: lastPointY}; // Update the dot's position to the last point
 
         ecgChart.update('none'); // Update without animation
         requestAnimationFrame(animate); // Continue the loop
       };
 
-      // Start the animation
-      requestAnimationFrame(animate);
+  // Start the animation
+  requestAnimationFrame(animate);
 
-      // Update BPM every second
-      setInterval(() => {
-        const newBPM = Math.floor(Math.random() * 40) + 60; // Generate new BPM
-        ecgChart.options.plugins.title.text = `BPM: ${newBPM}`; // Update BPM text
-        ecgChart.update(); // Reflect changes in the chart
-      }, 1000);
-    });
+  // Update BPM every second
+  setInterval(() => {
+    const newBPM = Math.floor(Math.random() * 40) + 60; // Generate new BPM
+    ecgChart.options.plugins.title.text = `BPM: ${newBPM}`; // Update BPM text
+    ecgChart.update(); // Reflect changes in the chart
+  }, 1000);
+});
 
 
 
