@@ -5,18 +5,26 @@
 </template>
   
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, reactive } from 'vue';
 import { Chart } from 'chart.js';
 
 export default {
   setup() {
     const ecgCanvas = ref(null);
 
-    const generateECGData = () => {
+    const state = reactive({
+      isCritical: false
+    });
+
+    const generateECGData = (isFlatline = false) => {
       let data = [];
       let bpmValues = [];
-      // Use a moderate spike interval for clearer animation
-      const spikeInterval = 60; // Adjusted for more frequent spikes
+      if (isFlatline) {
+        // Generate flatline data
+        data = Array(300).fill(0); // 300 data points at 0 for a flatline
+      } else {
+
+        const spikeInterval = 60; // Adjusted for more frequent spikes
 
       const bpm = Math.floor(Math.random() * 40) + 60;
 
@@ -33,10 +41,17 @@ export default {
       }
       bpmValues.push(bpm);
       return { data, bpmValues };
+      }
+      return { data, bpmValues: [0] }; // BPM is 0 for flatline
     };
+  
 
     const animate = (ecgChart, bpmValues) => {
-      const data = ecgChart.data.datasets[0].data;
+      if (state.isCritical) {
+        // No need to animate for a flatline, but you might need to ensure chart is correctly rendered once
+        ecgChart.update();
+      } else {
+        const data = ecgChart.data.datasets[0].data;
       data.push(data.shift());
 
       const lastIndex = data.length - 1;
@@ -49,10 +64,12 @@ export default {
       ecgChart.update('none');
 
       requestAnimationFrame(() => animate(ecgChart, bpmValues));
+      }
     };
+  
 
     onMounted(() => {
-      const { data, bpmValues } = generateECGData();
+      const { data, bpmValues } = generateECGData(state.isCritical);
       const ctx = ecgCanvas.value.getContext('2d');
       const ecgChart = new Chart(ctx, {
         type: 'line',
@@ -131,9 +148,20 @@ const animate = () => {
   }, 1000);
 });
 
+const setFlatline = () => {
+      state.isCritical = true;
+      // Regenerate the data for a flatline and update the chart
+      const { data, bpmValues } = generateECGData(true);
+      const ecgChart = Chart.getChart(ecgCanvas.value); // Get the existing chart instance
+      ecgChart.data.datasets[0].data = data; // Update data for flatline
+      ecgChart.options.plugins.title.text = 'BPM: 0'; // Update title to show 0 BPM
+      ecgChart.update();
+    };
 
 
-    return { ecgCanvas };
+
+
+    return { ecgCanvas, setFlatline };
   },
 };
 </script>

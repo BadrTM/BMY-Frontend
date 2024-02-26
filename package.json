@@ -20,6 +20,8 @@
     "firebase": "^10.8.0",
     "postcss": "^8",
     "register-service-worker": "^1.7.2",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
     "tailwindcss": "^3",
     "vue": "^2.7.14",
     "vue-chartjs": "3.5.1",
