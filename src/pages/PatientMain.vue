@@ -114,7 +114,7 @@ export default {
   },
   methods: {
     connectToSocket() {
-      this.socket = io('http://192.168.0.14:8080');
+      this.socket = io('http://192.168.180.214:8081');
 
       this.socket.on('connect', () => {
         console.log('Connected to the server');
