@@ -17,28 +17,8 @@ const routes = [
   {
     path: "/",
     component: DashboardLayout,
-    redirect: "/dashboard",
+    redirect: "/patients",
     children: [
-      {
-        path: "dashboard",
-        name: "dashboard",
-        component: Dashboard
-      },
-      {
-        path: "profile",
-        name: "profile",
-        component: Profile
-      },
-      {
-        path: "notifications",
-        name: "notifications",
-        component: Notifications
-      },
-      {
-        path: "icons",
-        name: "icons",
-        component: Icons
-      },
       {
         path: "patients",
         name: "patients",

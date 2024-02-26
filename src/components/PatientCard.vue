@@ -149,5 +149,6 @@ export default {
   font-weight: bold;
   font-size: 24px;
   animation: flash 1s infinite;
+  border-radius: 5%;
 }
 </style>

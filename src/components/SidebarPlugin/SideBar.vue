@@ -11,19 +11,38 @@
       
        
       </div>
-      <slot>
-
-      </slot>
       <ul class="nav">
         <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
-        <slot name="links">
-          <sidebar-link v-for="(link,index) in sidebarLinks"
+            <a class="nav-link pl-0">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a href="#/patients" class="nav-link pl-0">
+                      <i class="tim-icons icon-chart-pie-36"></i>
+                      <p class="text-base">Nurse Dashboard</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a href="#/patient-main" class="nav-link pl-0">
+                      <i class="tim-icons icon-pin"></i>
+                      <p class="text-base">Patient View</p>
+                    </a>
+                  </li>
+
+                  <!-- <li class="nav-item">
+                    <a href="#/notifications" class="nav-link">
+                      <i class="tim-icons icon-bell-55"></i>
+                      <p>Notifications</p>
+                    </a>
+                  </li> -->
+                </ul>
+            </a>
+          <!-- <sidebar-link v-for="(link,index) in sidebarLinks"
                         :key="index"
                         :to="link.path"
                         :name="link.name"
                         :icon="link.icon">
-          </sidebar-link>
-        </slot>
+          </sidebar-link> -->
       </ul>
     </div>
   </div>

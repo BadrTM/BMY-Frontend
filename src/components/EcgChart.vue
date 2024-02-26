@@ -1,5 +1,5 @@
 <template>
-  <div class="chart-container bg-gradient-to-b from-black via-transparent via-70% to-black rounded-lg">
+  <div class="chart-container bg-gradient-to-b from-black via-gray-500 via-50% to-black rounded-lg rounded-b-none border-b-2 border-white">
     <canvas ref="ecgCanvas"></canvas>
   </div>
 </template>

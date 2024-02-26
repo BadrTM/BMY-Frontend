@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-2 gap-2">
-        <div class="rounded-lg border-4 border-black bg-slate-200 h-80">
+        <div class="rounded-lg border-4 border-black bg-slate-200 h-full">
             <div class="grid grid-rows-3 h-full w-full px-2 pt-2 gap-2 pb-2">
                 <div class="px-2 w-full border-4 border-red-500 rounded-lg">
                     <div class="flex h-full items-center gap-8">

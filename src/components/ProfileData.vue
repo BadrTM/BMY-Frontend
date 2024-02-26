@@ -17,6 +17,7 @@
         </div>
 
         <div class="latest-alerts rounded-lg border-4 border-black bg-slate-200">
+            <p class="text-3xl text-black font-bold flex justify-center pt-3">ALERTS</p>
             <div class="grid grid-rows-3 h-full w-full px-2 pt-2">
                 <div v-for="alert in alerts" :key="alert.id" class="alert-entry px-2 w-full border-4 border-black rounded-lg">
                     <div class="alert-dot" v-if="!alert.clicked"></div>
@@ -44,9 +45,21 @@ export default {
                 photoUrl: "https://avatar.iran.liara.run/public/boy?username=johndoe"
             },
             alerts: [
-                { id: 1, clicked: false, content: "Alert 1" },
-                { id: 2, clicked: true, content: "Alert 2" },
-                { id: 3, clicked: false, content: "Alert 3" },
+                {
+                    id: 1,
+                    clicked: false,
+                    content: "Patient has high blood pressure. Monitor blood pressure regularly."
+                },
+                {
+                    id: 2,
+                    clicked: false,
+                    content: "Patient has diabetes. Ensure proper insulin dosage and monitor blood sugar levels."
+                },
+                {
+                    id: 3,
+                    clicked: false,
+                    content: "Patient has a history of heart disease. Monitor heart rate and blood pressure closely."
+                }
                 // Add more alerts here
             ],
         };

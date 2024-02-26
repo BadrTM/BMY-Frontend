@@ -1,6 +1,6 @@
 <template>
   <div class="patients-container">
-    <h1>Patients</h1>
+    <p class="text-6xl font-bold pb-4">Patients</p>
     <div class="grid-container">
       <PatientCard v-for="(patient, index) in patientData" :key="patient.id" :name="patient.name"
         :condition="patient.condition" :gender="patient.gender" :age="patient.age" :photoUrl="patient.photoUrl"

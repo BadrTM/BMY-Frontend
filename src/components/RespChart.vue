@@ -1,5 +1,5 @@
 <template>
-    <div class="chart-container">
+    <div class="chart-container bg-gradient-to-b from-black via-gray-500 to-black rounded-t-none rounded-lg">
       <canvas ref="respCanvas"></canvas>
       <div class="resp-text" ref="respText">RESP: {{ respValue }}</div>
     </div>
