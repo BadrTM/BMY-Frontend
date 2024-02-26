@@ -119,7 +119,6 @@
     "notifications": "Notifications",
     "userProfile": "User Profile",
     "tableList": "Table List",
-    "typography": "Typography",
-    "rtlSupport": "RTL Support"
+    "typography": "Typography"
   }
 }

@@ -27,8 +27,8 @@
       </button>
 
       <collapse-transition>
-        <div class="collapse navbar-collapse show" v-show="showMenu">
-          <ul class="navbar-nav" :class="$rtl.isRTL ? 'mr-auto' : 'ml-auto'">
+        <div class="collapse navbar-collapse show" v-show="showMenu" style="display: none; justify-content: flex-end;">
+          <ul class="navbar-nav">
             <div class="search-bar input-group" @click="searchModalVisible = true">
               <!-- <input type="text" class="form-control" placeholder="Search...">
               <div class="input-group-addon"><i class="tim-icons icon-zoom-split"></i></div> -->
@@ -45,7 +45,6 @@
               <input slot="header" v-model="searchQuery" type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
             </modal>
             <base-dropdown tag="li"
-                           :menu-on-right="!$rtl.isRTL"
                            title-tag="a" class="nav-item">
               <a slot="title" href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="true">
                 <div class="notification d-none d-lg-block d-xl-block"></div>
@@ -71,7 +70,6 @@
               </li>
             </base-dropdown>
             <base-dropdown tag="li"
-                           :menu-on-right="!$rtl.isRTL"
                            title-tag="a"
                            class="nav-item"
                            menu-classes="dropdown-navbar">
@@ -114,9 +112,6 @@
       routeName() {
         const { name } = this.$route;
         return this.capitalizeFirstLetter(name);
-      },
-      isRTL() {
-        return this.$rtl.isRTL;
       }
     },
     data() {
