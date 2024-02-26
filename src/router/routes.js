@@ -11,6 +11,7 @@ const Patients = () => import(/* webpackChunkName: "common" */ "@/pages/Patients
 const Typography = () => import(/* webpackChunkName: "common" */ "@/pages/Typography.vue");
 const TableList = () => import(/* webpackChunkName: "common" */ "@/pages/TableList.vue");
 const PatientMain = () => import(/* webpackChunkName: "common" */ "@/pages/PatientMain.vue");
+const NurseView = () => import(/* webpackChunkName: "common" */ "@/pages/NurseView.vue");
 
 const routes = [
   {
@@ -57,7 +58,13 @@ const routes = [
         path: "patient-main",
         name: "Home",
         component: PatientMain
-      }
+      },
+      {
+        path: "nurse-view",
+        name: "nurse-view",
+        component: NurseView
+      },
+
     ]
   },
   { path: "*", component: NotFound },
